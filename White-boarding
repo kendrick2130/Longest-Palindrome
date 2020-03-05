@@ -1,0 +1,46 @@
+public static bool IsPalin(string put)
+        {
+            string revStr = "";
+
+            for (int i = 0; i < put.Length; i++)
+            {
+                revStr = put[i] + revStr;
+            }
+            if (revStr == put)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public string longestPalin(string given)
+        {
+            string longPalin = "";
+            given = "aabcdcb";
+            //given = "12345";
+            string input;
+
+            for(int i = 0; i < given.Length; i++)
+            {
+                for(int j = i; j <= given.Length; j++)
+                {
+                    input = given.Substring(i, j - i);               
+                    
+                    if(IsPalin(input)) // checking to see if it is a plaindrome
+                    {
+                       if(input.Length > longPalin.Length) // is it the longest plaindrome
+                        {
+                            longPalin = input; // updating the longest palindrome that is verified.
+                        }
+                    }                                     
+                }
+                Console.WriteLine(longPalin);
+               
+            }
+            return longPalin;
+
+        }
+    }
+}
